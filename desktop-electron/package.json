@@ -1,7 +1,7 @@
 {
-  "name": "Cogia App",
+  "name": "FansCRM App",
   "version": "0.0.1",
-  "description": "This is a Cogia test app",
+  "description": "This is a FansCRM test app",
   "main": "main.js",
   "scripts": {
     "app": "cd app && npm start",
