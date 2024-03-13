@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.login-bg {
+  background: #0f1343;
+  background-size: 100% 100%;
+  background-position: right -65px top;
+  background-repeat: no-repeat;
+}
