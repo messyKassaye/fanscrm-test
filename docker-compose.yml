@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:latest
+    restart: always
+    hostname: db
+    environment:
+      MYSQL_ROOT_PASSWORD: '${DATABASE_PASSWORD}'
+      MYSQL_ALLOW_EMPTY_PASSWORD: yes
+      MYSQL_RANDOM_ROOT_PASSWORD: yes
+      MYSQL_DATABASE: '${DATABASE_NAME}'
+      MYSQL_PASSWORD: '${DATABASE_PASSWORD}'
+    ports:
+      - '${DATABASE_PORT}:3306'
+    networks:
+      - nest-network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - '${BACKEND_PORT}:5000'
+    volumes:
+      - ./backend:/app/backend/
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - '${FRONTEND_PORT}:3000'
+    volumes:
+      - ./frontend:/app/frontend/
+
+volumes:
+  fans_crm:
+
+networks:
+  nest-network:
+    driver: bridge
