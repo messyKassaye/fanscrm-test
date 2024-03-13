@@ -3,5 +3,6 @@ I also added electron desktop with react. I can't add electron to docker service
 
 #### Run it like below
 ```bat
-npm install && cd app && npm install && npm run electron:serve
+cd desktop-electron & npm install & cd app & npm install & cd .. & npm run electron:serve
 ```
+
